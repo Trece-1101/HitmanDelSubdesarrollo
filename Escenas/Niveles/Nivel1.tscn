@@ -190,6 +190,8 @@ position = Vector2( 1670.95, 435.669 )
 
 [node name="Puertas" type="Node2D" parent="." index="5"]
 
+editor/display_folded = true
+
 [node name="Puerta" parent="Puertas" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 1249.51, 438.467 )
@@ -265,8 +267,6 @@ mix_target = 0
 bus = "Master"
 
 [node name="Guardias" type="Node2D" parent="." index="9"]
-
-editor/display_folded = true
 
 [node name="Guardia" parent="Guardias" index="0" instance=ExtResource( 13 )]
 
