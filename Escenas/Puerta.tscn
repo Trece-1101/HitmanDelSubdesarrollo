@@ -64,7 +64,7 @@ closed = true
 cull_mode = 1
 polygon = PoolVector2Array( -32.3783, -9.90942, 32.6732, -10.1652, 32.5879, 9.87033, -32.3783, 9.87033 )
 
-[node name="Puerta" type="Area2D"]
+[node name="Puerta" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

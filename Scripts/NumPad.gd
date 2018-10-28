@@ -17,7 +17,7 @@ func conectar_botones():
 	for boton in botones.get_children():
 		if boton is Button:
 			boton.connect("pressed", self, "_on_Button_pressed", [boton.text])
-			print(boton.text)
+			#print(boton.text)
 			
 func _on_Button_pressed(boton):
 	if boton == "OK":

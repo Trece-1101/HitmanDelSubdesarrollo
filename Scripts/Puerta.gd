@@ -14,7 +14,8 @@ func _on_Puerta_body_exited(body):
 		en_rango = false
 
 func abrir():
-	$AnimationPlayer.play("abrir")
+	if not $AnimationPlayer.is_playing():
+		$AnimationPlayer.play("abrir")
 
 func _input_event(viewport, event, shape_idx):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and en_rango:
