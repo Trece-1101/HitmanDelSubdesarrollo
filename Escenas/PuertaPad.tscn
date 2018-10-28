@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Escenas/Puerta.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/PuertaPad.gd" type="Script" id=2]
+[ext_resource path="res://GFX/PNG/Tiles/tile_463.png" type="Texture" id=3]
+[ext_resource path="res://Escenas/NumPad.tscn" type="PackedScene" id=4]
+
+[node name="PuertaPad" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="ColisionDeArea" parent="." index="0"]
+
+visible = false
+
+[node name="Sprite" parent="." index="3"]
+
+editor/display_folded = true
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="ColisionPuerta" parent="Sprite/StaticBody2D" index="0"]
+
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="NumPad" parent="CanvasLayer" index="0" instance=ExtResource( 4 )]
+
+visible = false
+margin_right = 300.0
+margin_bottom = 400.0
+
+[connection signal="combinacion_correcta" from="CanvasLayer/NumPad" to="." method="_on_NumPad_combinacion_correcta"]
+
+

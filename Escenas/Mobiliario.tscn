@@ -1,0 +1,261 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://GFX/Tilesheet/tilesheet_complete.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 22.3502, 19.7766 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+
+closed = true
+cull_mode = 1
+polygon = PoolVector2Array( -22.3099, 14.3834, -22.1939, -11.4807, -19.5263, -12.0606, -16.5108, -17.8597, 14.4565, -18.0917, 18.2839, -12.2926, 21.4154, -11.7126, 21.7633, 8.12032, 21.4154, 15.8911, 15.6163, 21.4583, -16.2788, 21.2263 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 93.6383, 30.3166 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+
+closed = true
+cull_mode = 1
+polygon = PoolVector2Array( -92.619, -29.6623, 93.3616, -29.1866, 93.3616, 28.8431, -93.8082, 28.8431 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 93.5487, 29.5261 )
+
+[sub_resource type="OccluderPolygon2D" id=6]
+
+closed = true
+cull_mode = 1
+polygon = PoolVector2Array( -93.5005, -28.166, 93.0805, -27.582, 92.7885, 14.1724, 81.401, 27.8959, -78.317, 29.3559, -94.3764, 16.2164 )
+
+[sub_resource type="CircleShape2D" id=7]
+
+custom_solver_bias = 0.0
+radius = 21.6328
+
+[sub_resource type="OccluderPolygon2D" id=8]
+
+closed = true
+cull_mode = 1
+polygon = PoolVector2Array( -8.69565, -10.2759, -0.52652, -16.0733, 5.79794, -15.0192, 11.8589, -17.1274, 19.2375, -19.2356, 23.7173, -18.7085, 22.6632, -9.48531, 20.028, -3.68787, 19.501, -0.789148, 18.4469, 4.21774, 18.4469, 11.5963, 16.8658, 19.2384, 6.85202, 16.3397, 3.68979, 15.0221, 1.0546, 14.2315, -5.79691, 11.3328, -8.95917, 7.37997, -12.3849, 3.6907, -18.9729, -3.16083, -21.6081, -7.37715, -10.8038, -12.1205 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 27.2743, 25.825 )
+
+[sub_resource type="OccluderPolygon2D" id=10]
+
+closed = true
+cull_mode = 1
+polygon = PoolVector2Array( -25.737, -25.4237, 27.7575, -23.8426, 27.494, 11.2056, 20.906, 21.7464, 8.25703, 25.4357, -14.1422, 24.1181, -26.2641, 13.3138 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30.173, 30.0413 )
+
+[node name="Mobiliario" type="Node2D"]
+
+[node name="SillonOficina" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( 99.513, 30.5173 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1088, 1216, 64, 64 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SillonOficina" index="0"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SillonOficina/StaticBody2D" index="0"]
+
+position = Vector2( 0.142395, 0.996769 )
+shape = SubResource( 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="SillonOficina" index="1"]
+
+position = Vector2( 0.347946, -0.927856 )
+occluder = SubResource( 2 )
+light_mask = 1
+
+[node name="EscritorioLargo" type="Sprite" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 98.7518, -95.5325 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1280, 1088, 192, 64 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="EscritorioLargo" index="0"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EscritorioLargo/StaticBody2D" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="EscritorioLargo" index="1"]
+
+occluder = SubResource( 4 )
+light_mask = 1
+
+[node name="SillonLargo" type="Sprite" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 353.603, -96.1959 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 896, 1088, 192, 64 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SillonLargo" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SillonLargo/StaticBody2D" index="0"]
+
+shape = SubResource( 5 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="SillonLargo" index="1"]
+
+occluder = SubResource( 6 )
+light_mask = 1
+
+[node name="Planta" type="Sprite" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 351.613, 31.8442 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1600, 256, 64, 64 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Planta" index="0"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planta/StaticBody2D" index="0"]
+
+position = Vector2( 3.16225, -0.263519 )
+shape = SubResource( 7 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Planta" index="1"]
+
+occluder = SubResource( 8 )
+light_mask = 1
+
+[node name="Sillon" type="Sprite" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 225.563, 31.1808 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1088, 1088, 64, 64 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sillon" index="0"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sillon/StaticBody2D" index="0"]
+
+shape = SubResource( 9 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sillon" index="1"]
+
+position = Vector2( 0.263519, -0.263519 )
+occluder = SubResource( 10 )
+light_mask = 1
+
+[node name="Cajonera" type="Sprite" parent="." index="5"]
+
+position = Vector2( -31.8441, 30.5173 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 1472, 1088, 64, 64 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Cajonera" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cajonera/StaticBody2D" index="0"]
+
+shape = SubResource( 11 )
+
+
