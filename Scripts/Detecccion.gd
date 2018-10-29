@@ -16,6 +16,7 @@ func _process(delta):
 func detectar():
 	if PlayerOne_en_CDV_TOL(CDV_TOL_CAMARA) and PlayerOne_en_LDV(RANGO_DETECCION_CAMARA):
 		$HazLuz.color = ROJO
+		get_tree().call_group("Sospechometro", "detectado")
 	else:
 		$HazLuz.color = BLANCO
 
@@ -34,6 +35,9 @@ func PlayerOne_en_LDV(rango_deteccion):
 	var LDV_obstaculo = espacio.intersect_ray(global_position, Personaje.global_position, [self], collision_mask)
 	var distancia_a_jugador = Personaje.global_position.distance_to(global_position)
 	var PlayerOne_en_rango = distancia_a_jugador < rango_deteccion
+	
+	if not LDV_obstaculo:
+		return false
 	
 	if LDV_obstaculo.collider == Personaje and PlayerOne_en_rango:
 		return true

@@ -20,9 +20,11 @@ func _on_NumPad_combinacion_correcta():
 	abrir()
 
 
-func _on_Computadora_combinacion(numeros):
+func _on_Computadora_combinacion(numeros, cgrupo):
 	combinacion = numeros
 	$CanvasLayer/NumPad.combinacion = combinacion
+	$Label.text = cgrupo
+	#$Label.rect_rotation = - rotacion
 
 
 func _on_Salida_body_entered(body):

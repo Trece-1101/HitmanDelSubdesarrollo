@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Navigation2D.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Destinos.gd" type="Script" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://Scripts/Vision.gd" type="Script" id=13]
 [ext_resource path="res://Escenas/Personajes/Guardia.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Escenas/GeneradorCombinaciones.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Escenas/NumPad.tres" type="Theme" id=16]
+[ext_resource path="res://Escenas/GUI.tscn" type="PackedScene" id=17]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -192,6 +194,7 @@ position = Vector2( 1670.95, 435.669 )
 
 [node name="Puertas" type="Node2D" parent="." index="5"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Puerta" parent="Puertas" index="0" instance=ExtResource( 8 )]
@@ -251,6 +254,7 @@ editor/display_folded = true
 
 position = Vector2( 1053.49, 94.7505 )
 long_combinacion = 3
+cgrupo = "Oficinas"
 
 [node name="Computadora2" parent="Computadoras" index="1" instance=ExtResource( 11 )]
 
@@ -258,6 +262,7 @@ position = Vector2( 1366.47, 90.8526 )
 rotation = 3.14159
 _sections_unfolded = [ "Collision", "Transform" ]
 long_combinacion = 5
+cgrupo = "Salon"
 
 [node name="Paredes" type="TileMap" parent="." index="8"]
 
@@ -314,11 +319,43 @@ caminar_despacio = 0.5
 
 [node name="GeneradorCombinaciones" parent="." index="11" instance=ExtResource( 15 )]
 
+[node name="Etiquetas" type="Node2D" parent="." index="12"]
+
+editor/display_folded = true
+
+[node name="Label" type="Label" parent="Etiquetas" index="0" groups=[
+"labels",
+]]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1561.0
+margin_top = 634.0
+margin_right = 1631.0
+margin_bottom = 657.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 16 )
+text = "Salon"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="GUI" parent="." index="13" instance=ExtResource( 17 )]
+
 [connection signal="timeout" from="Personaje/VisionTimer" to="Personaje" method="_on_VisionTimer_timeout"]
 
-[connection signal="combinacion" from="Computadoras/Computadora" to="Puertas/PuertaPad2" method="_on_Computadora_combinacion"]
-
 [connection signal="combinacion" from="Computadoras/Computadora" to="Puertas/PuertaPad" method="_on_Computadora_combinacion"]
+
+[connection signal="combinacion" from="Computadoras/Computadora" to="Puertas/PuertaPad2" method="_on_Computadora_combinacion"]
 
 [connection signal="combinacion" from="Computadoras/Computadora2" to="Puertas/PuertaPad3" method="_on_Computadora_combinacion"]
 

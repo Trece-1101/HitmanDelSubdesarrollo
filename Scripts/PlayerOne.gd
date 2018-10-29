@@ -2,6 +2,7 @@ extends "res://Scripts/Personaje.gd"
 
 var mov = Vector2()
 var modo_vision_enfriamiento = false
+var disfraz = false
 enum modo_vision {OSCURO, VISION_NOCTURNA}
 
 func _ready():
@@ -11,7 +12,7 @@ func _ready():
 func _process(delta):
 	update_mov(delta)
 	move_and_slide(mov)
-	#print($VisionTimer.time_left)
+
 
 func update_mov(delta):
 	look_at(get_global_mouse_position())	
@@ -58,6 +59,9 @@ func _input(event):
 	if Input.is_action_pressed("ui_modo_vision"):
 		if modo_vision == OSCURO:
 			cambiar_modo_vision()
+	
+	if Input.is_action_pressed("ui_disfraz"):
+		cambiar_disfraz()
 
 
 func _on_VisionTimer_timeout():
@@ -74,3 +78,23 @@ func cambiar_modo_vision():
 		$VisionTimer.stop()
 		get_tree().call_group("interfaz", "Oscuro")
 		modo_vision = OSCURO
+
+func cambiar_disfraz():
+	if disfraz:
+		normal()
+	else:
+		disfraz()
+	
+func disfraz():
+	$Sprite.texture = load(Global.box_sprite)
+	$Light2D.texture = load(Global.box_sprite)
+	$LightOccluder2D.occluder = load(Global.box_oclusion)
+	collision_layer = 16
+	disfraz = true
+	
+func normal():
+	$Sprite.texture = load(Global.player_sprite)
+	$Light2D.texture = load(Global.player_sprite)
+	$LightOccluder2D.occluder = load(Global.player_oculder)
+	collision_layer = 1
+	disfraz = false

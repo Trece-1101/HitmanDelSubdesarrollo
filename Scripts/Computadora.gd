@@ -3,18 +3,20 @@ extends Area2D
 var combinacion
 var en_rango = false
 export var long_combinacion = 4
+export var cgrupo = "setear"
 
 signal combinacion
 
 func _ready():
 	luz_prendida(false)
 	generar_combinacion()
-	emit_signal("combinacion", combinacion)
+	emit_signal("combinacion", combinacion, cgrupo)
 	
 func generar_combinacion():
 	var generador_combinacion = get_tree().get_root().find_node("GeneradorCombinaciones", true, false)
 	combinacion = generador_combinacion.generar_combinacion(long_combinacion)
 	$CanvasLayer/PopComputadora.set_text(combinacion)
+	$Label.text = cgrupo
 
 func _on_Computadora_body_entered(body):
 	en_rango = true
