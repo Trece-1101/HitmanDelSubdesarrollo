@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Navigation2D.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Destinos.gd" type="Script" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://Escenas/GeneradorCombinaciones.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Escenas/NumPad.tres" type="Theme" id=16]
 [ext_resource path="res://Escenas/GUI.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Escenas/Portafolio.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Escenas/Salida.tscn" type="PackedScene" id=19]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -106,6 +108,7 @@ tile_data = PoolIntArray( -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0
 
 [node name="Personaje" parent="." index="2" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 position = Vector2( 111.765, 119.2 )
 
 [node name="Camera2D" type="Camera2D" parent="Personaje" index="2"]
@@ -350,11 +353,26 @@ _sections_unfolded = [ "Theme" ]
 
 [node name="GUI" parent="." index="13" instance=ExtResource( 17 )]
 
+[node name="Loot" type="Node2D" parent="." index="14"]
+
+editor/display_folded = true
+
+[node name="Area2D" parent="Loot" index="0" instance=ExtResource( 18 )]
+
+position = Vector2( 563.993, 436.945 )
+
+[node name="Salida" parent="." index="15" instance=ExtResource( 19 )]
+
+margin_left = 96.0
+margin_top = 1001.0
+margin_right = 414.0
+margin_bottom = 1173.0
+
 [connection signal="timeout" from="Personaje/VisionTimer" to="Personaje" method="_on_VisionTimer_timeout"]
 
-[connection signal="combinacion" from="Computadoras/Computadora" to="Puertas/PuertaPad" method="_on_Computadora_combinacion"]
-
 [connection signal="combinacion" from="Computadoras/Computadora" to="Puertas/PuertaPad2" method="_on_Computadora_combinacion"]
+
+[connection signal="combinacion" from="Computadoras/Computadora" to="Puertas/PuertaPad" method="_on_Computadora_combinacion"]
 
 [connection signal="combinacion" from="Computadoras/Computadora2" to="Puertas/PuertaPad3" method="_on_Computadora_combinacion"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://GFX/Interface/PNG/glassPanel_cornerTL.png" type="Texture" id=1]
 [ext_resource path="res://Escenas/NumPad.tres" type="Theme" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Scripts/Sospechometro.gd" type="Script" id=5]
 [ext_resource path="res://GFX/Interface/PNG/glassPanel_cornerBR.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/DisplayDisfraz.gd" type="Script" id=7]
+[ext_resource path="res://GFX/Interface/PNG/glassPanel_cornerBL.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/LootContainer.gd" type="Script" id=9]
 
 [node name="GUI" type="CanvasLayer"]
 
@@ -134,6 +136,7 @@ baja_sospecha = 0.25
 
 [node name="DisfrazContainer" type="NinePatchRect" parent="." index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -154,10 +157,11 @@ patch_margin_left = 12
 patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
-_sections_unfolded = [ "Margin", "Patch Margin", "Theme" ]
+_sections_unfolded = [ "Margin", "Patch Margin", "Rect", "Theme" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DisfrazContainer" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -194,7 +198,7 @@ text = "Disfraces"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Theme" ]
+_sections_unfolded = [ "Rect", "Theme" ]
 
 [node name="DisplayDisfraz" type="ItemList" parent="DisfrazContainer/VBoxContainer" index="1" groups=[
 "DisplayDisfraz",
@@ -224,5 +228,81 @@ icon_scale = 0.5
 fixed_icon_size = Vector2( 0, 0 )
 script = ExtResource( 7 )
 _sections_unfolded = [ "Columns", "Icon", "Rect", "Size Flags" ]
+
+[node name="LootContainer" type="NinePatchRect" parent="." index="2" groups=[
+"interfaz",
+]]
+
+editor/display_folded = true
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_left = -260.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 103.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+texture = ExtResource( 8 )
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+script = ExtResource( 9 )
+_sections_unfolded = [ "Margin", "Patch Margin", "Theme" ]
+
+[node name="Label" type="Label" parent="LootContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 40.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Loot"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Theme" ]
+
+[node name="LootList" type="ItemList" parent="LootContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 125.0
+margin_top = 26.0
+margin_right = 165.0
+margin_bottom = 66.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+items = [  ]
+select_mode = 0
+allow_reselect = false
+max_columns = 5
+icon_mode = 1
+icon_scale = 0.5
+fixed_icon_size = Vector2( 0, 0 )
+_sections_unfolded = [ "Columns", "Icon" ]
 
 

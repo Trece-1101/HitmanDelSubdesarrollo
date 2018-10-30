@@ -119,3 +119,10 @@ func normal():
 
 func update_disfraz_display():
 	get_tree().call_group("DisplayDisfraz", "update_disfraces", num_disfraz)
+
+func tomar_portafolio():
+	#print("tomar_portafolio en player one")
+	var loot = Node.new()
+	loot.set_name("portafolio")
+	add_child(loot)
+	get_tree().call_group("interfaz", "tomar_loot")

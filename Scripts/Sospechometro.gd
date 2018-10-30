@@ -16,4 +16,4 @@ func detectado():
 		end_game()
 		
 func end_game():
-	get_tree().quit()
+	get_tree().change_scene("res://Escenas/GameOver.tscn")
