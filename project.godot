@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="MetalGear"
-run/main_scene="res://Escenas/Niveles/Nivel1.tscn"
+run/main_scene="res://Escenas/Niveles/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

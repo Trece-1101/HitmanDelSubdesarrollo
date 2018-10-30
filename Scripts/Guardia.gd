@@ -1,8 +1,8 @@
 extends "res://Scripts/Detecccion.gd"
 
-const RANGO_DETECCION_LINTERNA = 270
+const RANGO_DETECCION_LINTERNA = 320
 const COLOR = Color(2, 0.50, 0.50)
-const CDV_TOL_LINTERNA = (34 * 0.5)
+const CDV_TOL_LINTERNA = (35 * 0.5)
 
 var mov = Vector2()
 var destino_posible = []
@@ -22,6 +22,7 @@ func _ready():
 func detectar():
 	if PlayerOne_en_CDV_TOL(CDV_TOL_LINTERNA) and PlayerOne_en_LDV(RANGO_DETECCION_LINTERNA):
 		$HazLuz.color = COLOR
+		get_tree().call_group("Sospechometro", "detectado")
 	else:
 		$HazLuz.color = BLANCO
 

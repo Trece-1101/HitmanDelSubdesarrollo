@@ -1,6 +1,6 @@
 extends CanvasModulate
 
-const OSCURO = Color("050b6f")
+const OSCURO = Color("03081c")
 const VISION_NOCTURNA = Color("45f550")
 
 func _ready():

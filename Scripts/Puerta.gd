@@ -6,6 +6,7 @@ func _on_Puerta_body_entered(body):
 	if not body == Global.PlayerOne and not $AnimationPlayer.is_playing():
 		abrir()
 		#print(body.get_parent().get_parent().name)
+		print(body.name)
 	else:
 		en_rango = true
 

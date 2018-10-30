@@ -72,6 +72,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Theme" ]
 
+[node name="VisionTimer" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = false
+
 [connection signal="timeout" from="Timer" to="." method="normal"]
+
+[connection signal="timeout" from="VisionTimer" to="." method="_on_VisionTimer_timeout"]
 
 
