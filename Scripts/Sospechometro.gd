@@ -2,7 +2,7 @@ extends TextureProgress
 
 var sospecha = 0
 
-export var step_sospecha = 1
+export var step_sospecha = 0.30
 export var baja_sospecha = 0.25
 
 func _process(delta):

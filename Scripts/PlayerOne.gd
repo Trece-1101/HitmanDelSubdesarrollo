@@ -7,12 +7,13 @@ export var num_disfraz = 3
 export var duracion_disfraz = 5
 export var lentitud_disfraz = 0.5
 var vel_multi = 1
+var modo_vision_actual
 
 enum modo_vision {OSCURO, VISION_NOCTURNA}
 
 func _ready():
 	Global.PlayerOne = self
-	modo_vision = OSCURO
+	modo_vision_actual = modo_vision.OSCURO
 	$Timer.wait_time = duracion_disfraz
 	update_disfraz_display()
 	normal()
@@ -68,7 +69,7 @@ func update_mov(delta):
 
 func _input(event):
 	if Input.is_action_pressed("ui_modo_vision"):
-		if modo_vision == OSCURO:
+		if modo_vision_actual == modo_vision.OSCURO:
 			cambiar_modo_vision()
 	
 	if Input.is_action_pressed("ui_disfraz"):
@@ -79,16 +80,16 @@ func _on_VisionTimer_timeout():
 	cambiar_modo_vision()
 
 func cambiar_modo_vision():
-	if modo_vision == OSCURO:
+	if modo_vision_actual == modo_vision.OSCURO:
 		#print("start")
 		$VisionTimer.start()
 		get_tree().call_group("interfaz", "Vision_Nocturna")
-		modo_vision = VISION_NOCTURNA
-	elif modo_vision == VISION_NOCTURNA:
+		modo_vision_actual = modo_vision.VISION_NOCTURNA
+	elif modo_vision_actual == modo_vision.VISION_NOCTURNA:
 		#print("stop")
 		$VisionTimer.stop()
 		get_tree().call_group("interfaz", "Oscuro")
-		modo_vision = OSCURO
+		modo_vision_actual = modo_vision.OSCURO
 
 func cambiar_disfraz():
 	if disfraz:
